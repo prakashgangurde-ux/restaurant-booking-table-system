@@ -2,11 +2,6 @@
 
 A full-stack web application for booking restaurant tables, featuring a complete customer-facing interface and a powerful admin panel for management.
 
-## Live Demo
-
-**(You can add the link here after you deploy the customer app!)**
-
----
 
 ## Features
 
@@ -52,7 +47,7 @@ Below are some screenshots of the application:
 ![Admin Dashboard](screenshots/booking-page.png)
 ![Table Management](screenshots/manage-table.png)
 ![Menu Management](screenshots/manage-menu.png)
-![Report Management](screenshots/manage-menu.png)
+![Report Management](screenshots/report.png)
 
 
 ## Setup Instructions
