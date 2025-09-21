@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Confirm Payment</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="form-container">
+        <h2>Confirm Your Booking</h2>
+        <p>You are about to book Table #<span id="table-number">...</span> for <span id="people-count">...</span> people.</p>
+        <div class="stat-card" style="margin: 2rem 0; text-align:center; padding: 1rem; background-color: #f8f9fa;">
+            <h3 style="margin:0; color: #6c757d;">Booking Fee</h3>
+            <p style="font-size: 2rem; font-weight: bold; margin:0;">₹50.00</p>
+        </div>
+
+        <form id="confirm-booking-form" method="post">
+            <input type="hidden" id="tableId" name="tableId">
+            <input type="hidden" id="tableNumber" name="tableNumber">
+            <input type="hidden" id="date" name="date">
+            <input type="hidden" id="time" name="time">
+            <input type="hidden" id="people" name="people">
+            
+            <button type="submit" style="background-color: #28a745;">Pay Now (Simulate Success)</button>
+        </form>
+        <a href="tables.html" class="back-link" style="text-align:center; display:block; margin-top:1rem;">Cancel</a>
+    </div>
+
+    <script>
+        // Get booking details from the URL and display them
+        const params = new URLSearchParams(window.location.search);
+        document.getElementById('table-number').textContent = params.get('tableNum');
+        document.getElementById('people-count').textContent = params.get('people');
+
+        // Populate the hidden form fields
+        document.getElementById('tableId').value = params.get('tableId');
+        document.getElementById('tableNumber').value = params.get('tableNum');
+        document.getElementById('date').value = params.get('date');
+        document.getElementById('time').value = params.get('time');
+        document.getElementById('people').value = params.get('people');
+        
+        // Set the form's action to point to our Flask backend URL
+        const form = document.getElementById('confirm-booking-form');
+        form.action = "http://127.0.0.1:5000/confirm-booking"; // <-- Your Flask app URL
+    </script>
+</body>
+</html>

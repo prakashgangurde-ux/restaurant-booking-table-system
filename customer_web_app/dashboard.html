@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>User Dashboard</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="form-container">
+        <h2>Welcome, <span id="user-name">Loading...</span>!</h2>
+        <p><strong>Email:</strong> <span id="user-email"></span></p>
+        <p><strong>Phone:</strong> <span id="user-phone"></span></p>
+
+        <a href="tables.html" class="button">View & Book Tables</a>
+        <a href="my-bookings.html" class="button">My Bookings</a>
+
+        <button id="logout-button">Logout</button>
+    </div>
+
+    <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-auth.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-firestore.js"></script>
+
+    <script src="dashboard.js"></script>
+</body>
+</html>

@@ -1,0 +1,55 @@
+{% extends "base.html" %}
+
+{% block title %}Reports & Analytics{% endblock %}
+
+{% block content %}
+<h1>Reports & Analytics</h1>
+<div class="stats-container">
+    <div class="row g-4">
+        <div class="col-md-3">
+            <div class="card h-100">
+                <div class="card-body text-center">
+                    <h5 class="card-title text-muted">Total Bookings</h5>
+                    <h2 class="display-4">{{ stats.total_bookings }}</h2>
+                </div>
+            </div>
+        </div>
+        
+        <div class="col-md-3">
+            <div class="card h-100">
+                <div class="card-body text-center">
+                    <h5 class="card-title text-muted">Today's Bookings</h5>
+                    <h2 class="display-4">{{ stats.today_bookings }}</h2>
+                </div>
+            </div>
+        </div>
+        
+        <div class="col-md-3">
+            <div class="card h-100">
+                <div class="card-body text-center">
+                    <h5 class="card-title text-muted">Peak Hour</h5>
+                    <h2 class="display-4">{{ stats.peak_hour }}</h2>
+                </div>
+            </div>
+        </div>
+        
+        <div class="col-md-3">
+            <div class="card h-100">
+                <div class="card-body">
+                    <h5 class="card-title text-muted text-center">Popular Tables</h5>
+                    <ol class="list-group list-group-numbered">
+                        {% for table_num, count in stats.popular_tables %}
+                            <li class="list-group-item d-flex justify-content-between align-items-center">
+                                Table #{{ table_num }}
+                                <span class="badge bg-primary rounded-pill">{{ count }}</span>
+                            </li>
+                        {% else %}
+                            <li class="list-group-item">No bookings yet.</li>
+                        {% endfor %}
+                    </ol>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}
