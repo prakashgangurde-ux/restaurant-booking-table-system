@@ -1,130 +1,396 @@
-# Restaurant Table Booking System
+# 🍽️ Restaurant Table Booking System
 
-A full-stack web application for booking restaurant tables, featuring a complete customer-facing interface and a powerful admin panel for management.
-
-
-## Features
-
-### 👤 Customer Web App
-- **User Authentication:** Secure sign-up and login functionality.
-- **Live Table View:** View a list of all restaurant tables and their real-time status (Available, Reserved).
-- **Booking System:** A simple form to book an available table for a specific date, time, and party size.
-- **Payment Simulation:** A "Pay at Venue" flow that simulates a successful payment and generates a booking confirmation.
-- **My Bookings Page:** A personal dashboard for users to view their past and upcoming reservations, which also acts as their booking receipt.
-- **Mobile-Responsive:** The design adapts to look great on both desktop and mobile devices.
-
-### ⚙️ Admin Panel (Python/Flask)
-- **Dashboard:** A central view of all bookings, sorted by date.
-- **Table Management:** A CRUD interface to Add, View, Update (status), and Delete restaurant tables.
-- **Menu Management:** A CRUD interface to Add, View, and Delete menu items.
-- **Payment Confirmation:** Staff can mark bookings as "Paid" when customers pay at the restaurant.
-- **Reports & Analytics:** A dashboard displaying key business metrics like total bookings, today's bookings, peak hours, and most popular tables.
+A full-stack restaurant reservation and management platform that enables customers to book tables online while providing restaurant staff with a comprehensive administration dashboard for managing reservations, tables, menus, payments, and business analytics.
 
 ---
 
-## Tech Stack
+## Overview
 
-- **Frontend:** HTML5, CSS3, JavaScript
-- **Backend:** Python (Flask)
-- **Database:** Google Firestore (NoSQL)
-- **Authentication:** Firebase Authentication
-- **Deployment:** Firebase Hosting (for Frontend), Google Cloud Run (for Backend)
+Restaurant Table Booking System is designed to streamline restaurant operations by digitizing table reservations and providing real-time booking management.
+
+The platform consists of:
+
+* A customer-facing reservation portal
+* A secure administration dashboard
+* Real-time table availability management
+* Reservation tracking and reporting
+
+This solution helps restaurants reduce manual booking errors, improve customer experience, and gain insights into booking trends.
+
+---
+
+## Key Features
+
+### 👤 Customer Portal
+
+#### User Authentication
+
+* Secure account registration
+* User login and session management
+* Firebase Authentication integration
+
+#### Online Table Reservation
+
+* View available tables
+* Real-time table status updates
+* Date and time selection
+* Party size management
+
+#### Booking Management
+
+* View upcoming reservations
+* Access booking history
+* Reservation confirmations
+* Digital booking receipts
+
+#### Payment Flow
+
+* Pay-at-venue booking process
+* Booking confirmation generation
+* Payment status tracking
+
+#### Responsive Design
+
+* Mobile-friendly interface
+* Tablet compatibility
+* Desktop optimization
+
+---
+
+### ⚙️ Administration Dashboard
+
+#### Reservation Management
+
+* View all bookings
+* Filter reservations by date
+* Manage customer reservations
+* Booking status monitoring
+
+#### Table Management
+
+* Create new tables
+* Update table status
+* Remove inactive tables
+* Track table availability
+
+#### Menu Management
+
+* Add menu items
+* Remove menu items
+* Manage restaurant offerings
+
+#### Payment Verification
+
+* Confirm completed payments
+* Update payment status
+* Reservation validation
+
+#### Business Analytics
+
+* Total reservations
+* Daily booking statistics
+* Peak booking hours
+* Most popular tables
+* Reservation trends
+
+---
+
+## Technology Stack
+
+### Frontend
+
+| Technology | Purpose                   |
+| ---------- | ------------------------- |
+| HTML5      | Application Structure     |
+| CSS3       | Styling                   |
+| JavaScript | Client-side Functionality |
+
+### Backend
+
+| Technology | Purpose              |
+| ---------- | -------------------- |
+| Python     | Backend Logic        |
+| Flask      | Web Framework        |
+| Flask-CORS | Cross-Origin Support |
+
+### Cloud Services
+
+| Service                 | Purpose             |
+| ----------------------- | ------------------- |
+| Firebase Authentication | User Authentication |
+| Google Firestore        | NoSQL Database      |
+| Firebase Hosting        | Frontend Hosting    |
+| Google Cloud Run        | Backend Deployment  |
+
+---
+
+## System Architecture
+
+```text
+Customer
+ │
+ ▼
+Customer Web Portal
+ │
+ ▼
+Firebase Authentication
+ │
+ ▼
+Flask Backend API
+ │
+ ├── Reservation Management
+ ├── Table Management
+ ├── Payment Processing
+ ├── Reporting Module
+ │
+ ▼
+Google Firestore
+```
 
 ---
 
 ## Screenshots
 
-Below are some screenshots of the application:
+### Customer Portal
 
-### Customer Web App
-![Customer Home](screenshots/welcome-page.png)
-![Table Booking Page](screenshots/booking.png)
+#### Welcome Page
+
+![Welcome](screenshots/welcome-page.png)
+
+#### Table Booking
+
+![Booking](screenshots/booking.png)
+
+#### Reservation Management
+
 ![Bookings](screenshots/table-book.png)
+
+#### Payment Confirmation
+
 ![Payment](screenshots/payment.png)
 
+---
 
-### Admin Panel
-![Admin Dashboard](screenshots/booking-page.png)
-![Table Management](screenshots/manage-table.png)
+### Administration Dashboard
+
+#### Reservation Dashboard
+
+![Dashboard](screenshots/booking-page.png)
+
+#### Table Management
+
+![Manage Tables](screenshots/manage-table.png)
+
+#### Menu Management
+
 ![Menu Management](screenshots/manage-menu.png)
-![Report Management](screenshots/report.png)
 
+#### Reports & Analytics
 
-## Setup Instructions
+![Reports](screenshots/report.png)
 
-### 1. Python Environment Setup
+---
+
+## Project Structure
+
+```text
+restaurant-booking-system/
+│
+├── restaurant_admin/
+│   ├── app.py
+│   ├── templates/
+│   ├── static/
+│   ├── requirements.txt
+│   └── serviceAccountKey.json
+│
+├── customer_web_app/
+│   ├── index.html
+│   ├── css/
+│   ├── js/
+│   └── assets/
+│
+├── screenshots/
+├── README.md
+└── LICENSE
+```
+
+---
+
+## Installation
+
+### Clone Repository
+
 ```bash
-# Create a virtual environment
+git clone https://github.com/prakashgangurde-ux/restaurant-table-booking-system.git
+
+cd restaurant-table-booking-system
+```
+
+---
+
+## Backend Setup
+
+Create virtual environment:
+
+```bash
 python -m venv venv
+```
 
-# Activate virtual environment
-# For Windows:
+Activate:
+
+Windows:
+
+```bash
 venv\Scripts\activate
-# For Linux/Mac:
-source venv/bin/activate
+```
 
-# Install dependencies
+Linux/macOS:
+
+```bash
+source venv/bin/activate
+```
+
+Install dependencies:
+
+```bash
 pip install -r requirements.txt
 ```
 
-### 2. Firebase Configuration
-Make sure you have your `serviceAccountKey.json` file in the restaurant_admin directory.
+Install required packages:
 
-### 3. Running the Application
+```bash
+pip install Flask firebase-admin Flask-Cors
+```
 
-#### Admin Panel (Backend)
+---
+
+## Firebase Configuration
+
+Place:
+
+```text
+serviceAccountKey.json
+```
+
+inside:
+
+```text
+restaurant_admin/
+```
+
+Configure:
+
+* Firebase Authentication
+* Firestore Database
+* Hosting (optional)
+
+---
+
+## Running the Application
+
+### Start Backend
+
 ```bash
 cd restaurant_admin
+
 python app.py
 ```
-The admin panel will run on `http://127.0.0.1:5000`
 
-#### Customer Interface (Frontend)
-For the customer-facing website, it's recommended to:
-1. Navigate to the `customer_web_app` folder.
-2. Right-click `index.html` and "Open with Browser".
+Backend URL:
 
-## Project Structure
-```
-restaurant-booking-system/
-├── restaurant_admin/       # Backend (Flask)
-│   ├── app.py
-│   ├── templates/          # Frontend HTML files
-│   ├── serviceAccountKey.json
-│   └── requirements.txt
-│   
-├── customer_web_app/
-│     # Frontend HTML files
-│   
-└── README.md
+```text
+http://127.0.0.1:5000
 ```
 
-## Important Notes
-- Always run the web application from the project's folder
-- Keep the admin panel (Flask backend) running while using the customer interface
-- Make sure both the frontend and backend servers are running simultaneously
-- The admin interface is accessible through VS Code
-- Use different ports for frontend (5500) and backend (5000) to avoid conflicts
+---
 
-## Troubleshooting
-- If you get module not found errors, ensure you've activated the virtual environment
-- If Firebase connection fails, verify your serviceAccountKey.json is properly configured
-- For CORS issues, ensure both servers are running and properly configured
-### Prerequisites
-- Python 3.x
-- Node.js and npm
-- Firebase CLI
+### Start Frontend
 
-### Frontend (Customer Web App)
-1. Navigate to the `customer_web_app` folder.
-2. Right-click `index.html` and "Open with Browser".
+Navigate to:
 
-### Backend (Admin Panel)
-1. Navigate to the `restaurant_admin` directory.
-2. Create a virtual environment: `python -m venv venv`
-3. Activate it: `source venv/bin/activate` (Mac/Linux) or `venv\Scripts\activate` (Windows)
-4. Install dependencies: `pip install Flask firebase-admin Flask-Cors`
-5. Place your `serviceAccountKey.json` from Firebase in this directory.
-6. Run the app: `python app.py`
-7. The admin panel will be available at `http://127.0.0.1:5000`
+```text
+customer_web_app/
+```
 
+Open:
+
+```text
+index.html
+```
+
+using:
+
+* VS Code Live Server
+* Local web server
+* Browser
+
+Recommended frontend port:
+
+```text
+5500
+```
+
+---
+
+## Business Benefits
+
+### For Customers
+
+* Faster reservations
+* Online booking convenience
+* Reservation history access
+* Mobile-friendly experience
+
+### For Restaurant Staff
+
+* Centralized reservation management
+* Reduced manual booking errors
+* Simplified table tracking
+* Better operational visibility
+
+### For Restaurant Owners
+
+* Reservation analytics
+* Peak-hour analysis
+* Popular table insights
+* Business performance tracking
+
+---
+
+## Future Enhancements
+
+* Online payment gateway integration
+* QR-based table check-in
+* SMS and email notifications
+* Multi-branch support
+* Loyalty rewards system
+* Customer feedback module
+* AI-powered reservation forecasting
+
+---
+
+## Security Features
+
+* Firebase Authentication
+* Protected admin dashboard
+* Firestore access controls
+* Secure session handling
+
+---
+
+## License
+
+MIT License
+
+Free for personal, educational, and commercial use.
+
+---
+
+## Author
+
+Prakash Gangurde
+
+GitHub:
+https://github.com/prakashgangurde-ux
+
+Full-Stack Developer specializing in web applications, business systems, and cloud-integrated solutions.
